@@ -1,0 +1,49 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Palavras App</a>
+  </div>
+</nav>
+<div class="container mt-5">
+  <h3>Busque sua palavra</h3>
+  <hr />
+  <form [formGroup]="form" (ngSubmit)="search()">
+    <div class="row">
+      <div class="col-md-6">
+        <input type="text" class="form-control" formControlName="name" />
+      </div>
+      <div class="col -md-1">
+        <button type="submit" [disabled]="!form.valid" class="btn btn-primary">
+          Buscar
+        </button>
+      </div>
+    </div>
+  </form>
+  <hr />
+  <div class="row">
+    <div class="col-md-4">
+      <ul class="list-group">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-center"
+        >
+          <table ng-show="substantives.length > 0">
+            <tr>
+              <th>Sinônimos</th>
+            </tr>
+            <tr
+              *ngFor="let substantive of substantives"
+              ng-show="substantives.length > 0"
+            >
+              <td>{{ substantive.name }}</td>
+            </tr>
+          </table>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <li class="list-group-item justify-content-between align-items-center">
+        <h6>Palavra mais buscada:</h6>
+        <div>{{ moreSearched.name }} - {{ moreSearched.counter }} vezes</div>
+      </li>
+    </div>
+  </div>
+</div>
