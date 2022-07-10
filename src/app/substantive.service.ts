@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SubstantiveService {
 
-  apiURL = 'http://localhost:8080/api';
+  apiURL = 'https://jsoup-word-api.herokuapp.com/api';
 
   constructor(
     private http: HttpClient
